@@ -13,14 +13,17 @@ describe("Colecciones en JS: Array", () => {
 
         // crea un array "a" usando el constructor "new"
         
-        const a = new Array();  
+        const a = new Array();   
 
         expect(Array.isArray(a)).to.be.true;
+    
     })
+
+
     it("Pueden estar vacíos o contener elementos", () => {
 
         const emptyArray = [];
-        const nonEmptyArray = [,]; 
+        const nonEmptyArray = [10]; 
         // crea un array que esté vacío y otro que no esté vacío
 
         expect(emptyArray).to.be.empty;
@@ -29,34 +32,34 @@ describe("Colecciones en JS: Array", () => {
     it("Tienen una longitud correspondiente que podemos conocer con la propiedad 'length'", () => {
 
         let list = [10, "foo", true, "pepe"];
-
+        
         // completa la definición que falta usando la propiedad length
 
         expect(list.length).to.equal(4);
-    })
+        })
     it("Nos permiten acceder a cada elemento del array", () => {
 
         let fruits = ["Piña", "Manzana", "Fresa", "Melón"]
 
         // sustituye "???" en cada caso para acceder al elemento correspondiente de la lista
 
-        expect(fruits[1]).to.equal("Piña");
-        expect("???").to.equal("Melón");
+        expect(fruits[0]).to.equal("Piña");
+        expect(fruits[3]).to.equal("Melón");
     })
     it("Nos permiten modificar cada elemento", () => {
 
         let fruits = ["Piña", "Manzana", "Fresa", "Melón"]
 
         // Añade el código que permite modificar el elemento correspondiente
-
+        fruits [1] = "Pera";
         expect(fruits).to.have.same.members(["Piña", "Pera", "Fresa", "Melón"])
-    })
+         })
 
     it("Podemos añadir elementos", () => {
         let fruits = ["Piña", "Manzana", "Fresa", "Melón"]
-
+        fruits [4] = "Pera"
         // Añade el código que permite modificar la lista (incluyendo un elemento al final)
-
+        
         expect(fruits).to.have.same.members(["Piña", "Manzana", "Fresa", "Melón", "Pera"])
     })
 })
@@ -85,7 +88,7 @@ describe("Ejemplos resueltos: Operaciones iterables", () => {
         list = list.map( n => n*2 );
         
         expect(list).to.have.same.members([2,10,14,18,22,26]);
-    })
+     })
 
     it("filter recorre la lista y se queda con los elementos que cumplen una condición", () => {
 
@@ -153,7 +156,7 @@ describe("Operaciones iterables", () => {
         let list = [1,5,7,9,11,13];
 
         // utiliza la función map para aplicar los números de la lista
-        list = "???";
+        list = list.map (num => num -1 );
         
 
         expect(list).to.have.same.members([0,4,6,8,10,12]);
@@ -164,7 +167,8 @@ describe("Operaciones iterables", () => {
         let list = ["Pikachu", "Charmander", "Magikarp"];
 
         // utiliza la función map para aplicar los números de la lista y guardar la nueva lista en result
-                
+        let result = list.map (nahuel => nahuel + ", te elijo a ti!")
+
         expect(result).to.have.same.members([
             "Pikachu, te elijo a ti!",
             "Charmander, te elijo a ti!",
@@ -177,7 +181,7 @@ describe("Operaciones iterables", () => {
         let knownExoplanets = [ "TOI-1298 b","TOI-132 b","TOI-1333 b","TOI-1338 b","TOI-1431 b","TOI-1444 b","TOI-1478 b","TOI-150.01","TOI-157 b","TOI-1601 b","TOI-163 b","TOI-1634 b","TOI-1685 b","TOI-169 b","TOI-172 b","TOI-1728 b","TOI-1749 b","TOI-1749 c"];
 
         // utiliza la función includes para comprobar si la lista de planetas contiene el planeta TOI-1634 b
-        let result = "???";
+        let result =  knownExoplanets.includes ("TOI-1634 b");
         
         expect(result).to.equal(true);        
     })
@@ -189,7 +193,7 @@ describe("Operaciones iterables", () => {
         // utiliza la función filter para quedarnos con los planetas que terminan por la letra c
         // puedes utilizar la función .endsWith para comprobar si un string termina por una letra
         // p.ej. "Hola".endsWith('a') devuelve true
-        let result = "???";
+        let result = knownExoplanets.filter  (knownExoplanets=>knownExoplanets.endsWith("c"));
         
 
         // todos los planetas de result terminan con la letra c
